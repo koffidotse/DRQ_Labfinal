@@ -12,9 +12,10 @@ export class Read extends React.Component {
     };
     //  Method Axios get request By using this we dont need to copy all jason data into movie like we did in last week Lab
     componentDidMount() {
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        //Getting Json data from new Api local host 4000
+        axios.get('http://localhost:4000/api/movies')
             .then(response => {
-                this.setState({ movies: response.data.Search })
+                this.setState({ movies: response.data.movies })
             }
             )
             .catch(

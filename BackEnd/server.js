@@ -55,7 +55,7 @@ app.get('/api/movies', (req, res) => {
 })
 
 //Routing point listening for post request and it will pull title year and poster out of the body
-app.post('api/movies', (req, res) => {
+app.post('/api/movies', (req, res) => {
     console.log('Movie Received!');
     console.log(req.body.title);
     console.log(req.body.year);

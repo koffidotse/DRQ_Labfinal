@@ -43,11 +43,11 @@ export class Create extends React.Component {
             poster: this.state.Poster
         }
         // Sending data to server copied url from local host 4000
-        axios.post('http://localhost:4000/api/movies', newMovie)
-            .then((res) => {
+        axios.post('http://localhost:4000/api/movies',newMovie)
+            .then((res)=>{
                 console.log(res);
             })
-            .catch((err) => {
+            .catch((err)=>{
                 console.log(err);
             });
 

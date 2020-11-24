@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 
 export class Create extends React.Component {
-    // Constructor 
+    // Constructors
     constructor() {
         super();
         this.onSubmit = this.onSubmit.bind(this);
@@ -17,32 +17,32 @@ export class Create extends React.Component {
             Poster: ''
         }
     }
-    //Method to display movie title
+    //here we display movie function 
     onChangeMovieName(e) {
-        this.setState({ Title: e.target.value }); //update method and invoke state
+        this.setState({ Title: e.target.value }); 
     }
-    //Methods to display movie year
+    //Display movie year
     onChangeMovieYear(e) {
         this.setState({ Year: e.target.value });
     }
-    //Methods to display movie poster
+    //Display movie poster
     onChangeMoviePoster(e) {
         this.setState({ Poster: e.target.value });
     }
-    //submit method this will allow user to post movie data into server
+    //submit function this will allow user to post movie data into server
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " "
             + this.state.Year + " " +
             this.state.Poster);
 
-        //object
+        //objects
         const newMovie = {
             title: this.state.Title,
             year: this.state.Year,
             poster: this.state.Poster
         }
-        // Sending data to server copied url from local host 4000
+        //url send data to local host 4000
         axios.post('http://localhost:4000/api/movies',newMovie)
             .then((res)=>{
                 console.log(res);

@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 
 export class Edit extends React.Component {
-    // Constructor 
+    // Constructors 
     constructor() {
         super();
         this.onSubmit = this.onSubmit.bind(this);
@@ -17,10 +17,10 @@ export class Edit extends React.Component {
             Poster: ''
         }
     }
-    // its lifecycle hook use to pull from url
+    
     componentDidMount() {
         console.log(this.props.match.params.id);
-        //Read data from server and return data as response
+        //Reading data from server and returnback data as response
         axios.get('http://localhost:4000/api/movies/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
@@ -38,19 +38,19 @@ export class Edit extends React.Component {
     }
 
 
-    //Method to display movie title
+    // Display Movie title
     onChangeMovieName(e) {
-        this.setState({ Title: e.target.value }); //update method and invoke state
+        this.setState({ Title: e.target.value }); 
     }
-    //Methods to display movie year
+    //Display movie year
     onChangeMovieYear(e) {
         this.setState({ Year: e.target.value });
     }
-    //Methods to display movie poster
+    //Display movie poster
     onChangeMoviePoster(e) {
         this.setState({ Poster: e.target.value });
     }
-    //submit method this will allow user to post movie data into server
+    //submit method will allow user to post movie data into server
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " "
@@ -65,7 +65,7 @@ export class Edit extends React.Component {
             _id: this.state._id
         }
 
-        //call method back 
+        //callback method 
         axios.put('http://localhost:4000/api/movies/' + this.state._id, newMovie)
             .then(res => {
                 console.log(res.data)

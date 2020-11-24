@@ -86,6 +86,19 @@ app.get('/api/movies/:id', (req, res) => {
     })
 
 })
+//Put method to edit or update the record 
+app.put('/api/movies/:id', (req,res) =>{
+    console.log("Update movie: "+req.params.id);
+    console.log(req.body);
+
+    MovieModel.findByIdAndUpdate(req.params.id,req.body, {new:true},
+      (err,data) =>{
+          res.send(data);
+      } )
+
+})
+
+
 app.post('/api/movies', (req, res) => {
     console.log('Movie Received!');
     console.log(req.body.title);

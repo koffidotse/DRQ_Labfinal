@@ -56,21 +56,20 @@ export class Create extends React.Component {
     render() {
         return (
             <div>
-                <h3>Hello from create component</h3>
                 <form onSubmit={this.onSubmit}>
 
                     <div className="form-group">
-                        <label>Please add movie title</label>
+                        <label>Add movie title:</label>
                         <input type="text" className="form-control" value={this.state.Title} onChange={this.onChangeMovieName}></input>
                     </div>
 
                     <div className="form-group">
-                        <label>Please add movie year</label>
+                        <label>Add movie year:</label>
                         <input type="text" className="form-control" value={this.state.Year} onChange={this.onChangeMovieYear}></input>
                     </div>
 
                     <div className="form-group">
-                        <label>Please add movie poster</label>
+                        <label>Add movie poster:</label>
                         <input type="text" className="form-control" value={this.state.Poster} onChange={this.onChangeMoviePoster}></input>
                     </div>
 

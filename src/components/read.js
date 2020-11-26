@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react';//importing react
 import { Movies } from './movies';
-import axios from 'axios';// imported axios
+import axios from 'axios';// importing axios
 
 export class Read extends React.Component {
 
@@ -28,7 +28,7 @@ export class Read extends React.Component {
     render() {
         return (
             <div>
-                <h1>This is read Component.</h1>
+                <h1>This is the read Component.</h1>
                 <Movies movies={this.state.movies}></Movies>
             </div>
 

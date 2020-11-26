@@ -1,10 +1,9 @@
-import React from 'react';
+import React from 'react';//importing react
 import '../App.css';
-import axios from 'axios';
+import axios from 'axios';//importing axios
 
 export class Edit extends React.Component {
-    // Constructors 
-    constructor() {
+    constructor() {  // Constructors 
         super();
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeMovieName = this.onChangeMovieName.bind(this);
@@ -37,28 +36,25 @@ export class Edit extends React.Component {
 
     }
 
-
-    // Display Movie title
-    onChangeMovieName(e) {
+    onChangeMovieName(e) { // Displaying the Movie title
         this.setState({ Title: e.target.value }); 
     }
-    //Display movie year
-    onChangeMovieYear(e) {
+    
+    onChangeMovieYear(e) { //This to display year of the movie
         this.setState({ Year: e.target.value });
     }
-    //Display movie poster
-    onChangeMoviePoster(e) {
+   
+    onChangeMoviePoster(e) {  //onChange to display movie poster
         this.setState({ Poster: e.target.value });
     }
-    //submit method will allow user to post movie data into server
+    //onsubmit to allow user to post movie data into server
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " "
             + this.state.Year + " " +
             this.state.Poster);
 
-        //object
-        const newMovie = {
+        const newMovie = {  //object of the movie
             title: this.state.Title,
             year: this.state.Year,
             poster: this.state.Poster,
@@ -82,7 +78,7 @@ export class Edit extends React.Component {
         // });
 
     }
-    // 3 Div for Movie Title,year,poster data display onSubmit function in form will save all movie data.
+    // displaying the movie component
     render() {
         return (
             <div>

@@ -1,4 +1,4 @@
-// Server Setup local host 4000 
+
 const express = require('express')
 const app = express()
 const port = 4000
@@ -19,10 +19,11 @@ app.use(function (req, res, next) {
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
+
 // parse application/json
 app.use(bodyParser.json())
 
-//Connection added with mongoDb
+//Connection with mongoDb
 const myConnectionString = 'mongodb+srv://admin:admin2@cluster0.jnlag.mongodb.net/movies?retryWrites=true&w=majority';
 
 mongoose.connect(myConnectionString, { useNewUrlParser: true });
@@ -36,8 +37,6 @@ var movieSchema = new Schema({
 
 //create model for database
 var MovieModel = mongoose.model("movie", movieSchema);
-
-
 
 //Routing point
 app.get('/', (req, res) => {
@@ -67,26 +66,18 @@ app.get('/api/movies', (req, res) => {
 
     MovieModel.find((err, data) => {
         res.json(data);
-
     })
 
-    //Passing object mymovies and ok message
-    // res.status(200).json({
-    //     message: "Everything is ok",
-    //     movies: mymovies
-    // });
 })
 
-//Routing point listening for post request and it will pull title year and poster out of the body
-
-app.get('/api/movies/:id', (req, res) => {
+app.get('/api/movies/:id', (req, res) => { // Listening for post request
     console.log(req.params.id);
     MovieModel.findById(req.params.id, (err, data) => {
         res.json(data);
     })
 
 })
-//Put method to edit or update the record 
+//The Put method to update/Edit records 
 app.put('/api/movies/:id', (req,res) =>{
     console.log("Update movie: "+req.params.id);
     console.log(req.body);
@@ -98,14 +89,13 @@ app.put('/api/movies/:id', (req,res) =>{
 
 })
 
-
 app.post('/api/movies', (req, res) => {
     console.log('Movie Received!');
     console.log(req.body.title);
     console.log(req.body.year);
     console.log(req.body.poster);
-    //Movie model
-    MovieModel.create({
+   
+    MovieModel.create({  //Movie model
         title: req.body.title,
         year: req.body.year,
         poster: req.body.poster

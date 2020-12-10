@@ -17,6 +17,10 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+//configuration methods ,static methods and build methods
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
+
  //Configure build and static
 app.use(express.static(path.join(__dirname,'..build')));
 app.use('/static', express.static(path.join(__dirname,'build//static')));
